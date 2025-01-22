@@ -2,8 +2,8 @@
 
 **Indice** 😎
 1. Explicacion movimiento de las cámaras
-2. Explicación movimiento jugador
-3. Explicación del cámara manager
+2. Explicación del cámara manager
+3. Explicación del movimiento del jugador
 
 ### 1. Explicacion movimiento de las cámaras 😄
 
@@ -106,4 +106,14 @@ El método para rotar al recedor es el .RotateAround que recibe varios parámetr
 4. el Time*deltaTime para que esté rotando continuamente
 
 ### Cámera manager 😄
-Este script se encarga de manejar 
+Este script se encarga de manejar las 3 cámaras del juego.
+
+**Explicación** 😎
+El script tiene un array de objetos que usamos en Unity y un índice.
+1. si pulsamos la tecla Q, el indice se aumenta en uno 1.
+2. Desactivamos antes de aumentar el índice, la cámara que había
+3. Preguntamos si el índice es superior o igual al tamaño del array de las cámaras
+4. Si lo supera, volvemos a 0, si no, sigue hacia adelante
+5. Activamos la siguiente cámara
+
+
