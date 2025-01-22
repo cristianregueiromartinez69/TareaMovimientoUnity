@@ -105,7 +105,7 @@ El método para rotar al recedor es el .RotateAround que recibe varios parámetr
 3. la velocidad de rotación
 4. el Time*deltaTime para que esté rotando continuamente
 
-### Cámera manager 😄
+### 2. Explicación del cámara manager 😄
 Este script se encarga de manejar las 3 cámaras del juego.
 
 **Explicación** 😎
@@ -116,4 +116,25 @@ El script tiene un array de objetos que usamos en Unity y un índice.
 4. Si lo supera, volvemos a 0, si no, sigue hacia adelante
 5. Activamos la siguiente cámara
 
+### 3. Explicación del movimiento del jugador
+EL movimiento del jugador en primera persona ya lo explicamos con el movimiento de la cámara en primera persona. El otro es el que deberíamos de tener todos.
 
+```bash
+ Vector2 movementVector = movementValue.Get<Vector2>();
+
+        movementX = movementVector.x;
+        movementY = movementVector.y;
+```
+En el código anterior, recogemos los valores de x e y para luego aplicarlos a la fuerza para mover al jugador.
+
+```bash
+if (cameraNormal.activeSelf || cenitalCamera.activeSelf)
+        {
+            Debug.Log("hola, entre en la camera normal");
+            Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+
+            rb.AddForce(movement * speed);
+        }
+```
+En el código anterior, primero preguntamos si la cámara cenital o la cámara normal están activas. Esto lo hacemos para diferenciarlo del movimiento de la cámara en primera persona.
+Si está activmos, creamos un vector 3 de movimiento en el que aplicamos la fuerza en el ejeX y en el ejeY.
